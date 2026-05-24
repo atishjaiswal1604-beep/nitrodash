@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nitro City</title>
+</head>
+<body style="text-align:center;background:black;">
+
+    <h1 style="color:white;">Nitro City</h1>
+
+    <img src="/video_feed" width="500">
+
+    <script>
+
+        document.addEventListener("keydown", e => {
+            fetch("/keydown", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    key: e.key === "ArrowLeft" ? "left" : "right"
+                })
+            });
+        });
+
+        document.addEventListener("keyup", e => {
+            fetch("/keyup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    key: e.key === "ArrowLeft" ? "left" : "right"
+                })
+            });
+        });
+
+    </script>
+
+</body>
+</html>
