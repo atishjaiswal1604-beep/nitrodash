@@ -8,17 +8,17 @@ WIDTH, HEIGHT = 500, 700
 screen = pygame.Surface((WIDTH, HEIGHT))
 
 # Images
-road_img = pygame.image.load(r"assets/road.png")
+road_img = pygame.image.load("assets/road.png")
 player_img = pygame.transform.scale(
-    pygame.image.load(r"assets/car.jpg"), (60, 100)
+    pygame.image.load("assets/car.jpg"), (60, 100)
 )
 
 enemy_img = pygame.transform.scale(
-    pygame.image.load(r"assets/enemy.gif"), (60, 100)
+    pygame.image.load("assets/enemy.gif"), (60, 100)
 )
 
 fuel_img = pygame.transform.scale(
-    pygame.image.load(r"assets/fuel.png"), (40, 40)
+    pygame.image.load("assets/fuel.png"), (40, 40)
 )
 
 font = pygame.font.SysFont(None, 36)
