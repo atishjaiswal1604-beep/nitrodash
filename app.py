@@ -36,7 +36,7 @@ def generate_frames():
 
         frame = pygame.surfarray.array3d(surface)
 
-        frame = np.transpose(frame, (1, 0, 2))
+        frame = np.rot90(frame)
         frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
 
         _, buffer = cv2.imencode(".jpg", frame)
