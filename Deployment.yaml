@@ -13,10 +13,21 @@ spec:
         app: car-app
     spec:
       containers:
-      - name: car-app
+      - name: stream-container
+        # ⚠️ Replace this with your actual AWS ECR repository URI and target tag
         image: 228096284456.dkr.ecr.ap-south-2.amazonaws.com/cargame:final
         ports:
         - containerPort: 5000
+        env:
+        - name: SDL_VIDEODRIVER
+          value: "dummy" # Forces Pygame to run headless without a GUI screen monitor
+        resources:
+          limits:
+            cpu: "1000m" # OpenCV image manipulation can be CPU intensive
+            memory: "1Gi"
+          requests:
+            cpu: "500m"
+            memory: "512Mi"
 ---
 apiVersion: v1
 kind: Service
